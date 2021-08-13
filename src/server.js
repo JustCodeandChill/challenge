@@ -1,11 +1,19 @@
 'use strict';
 const express = require('express');
 const path = require('path')
+const cors = require('cors')
+
 const app = express();
 const registerRoutes = require('./routes');
-
+const {clientErrorHandler} = require("./middleware");
 // server config
 const port = process.env.PORT || 3000;
+
+// prevent crash
+app.use(clientErrorHandler);
+
+// enable cors
+app.use(cors());
 
 // serve static file
 const publicPath = path.join(__dirname, '../', 'public');
