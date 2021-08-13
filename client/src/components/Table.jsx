@@ -1,8 +1,7 @@
 import React from "react";
-import { Container, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 export default function CustomTable({ header, data, option, styles }) {
-
   const getTableHead = () => {
     return (
       <thead>
@@ -16,13 +15,14 @@ export default function CustomTable({ header, data, option, styles }) {
   };
 
   const getTableBody = () => {
+
     switch (option) {
-      case "simple":
-        return getTableBodySimple();
-      case "nested":
+      case "username-age":
         return getTableBodyNested();
-      default:
+      case "age-count":
         return getTableBodySimple();
+      default:
+        return null;
     }
   };
 
@@ -67,7 +67,7 @@ export default function CustomTable({ header, data, option, styles }) {
     if (!data || !header) return null;
 
     return (
-      <Table>
+      <Table bordered hover className="mt-2">
         {header && getTableHead()}
         {data && getTableBody()}
       </Table>

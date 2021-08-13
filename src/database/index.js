@@ -67,7 +67,15 @@ const getListOfAgesOfUsersWith = (item) => {
              })
          } );
 
-         return data; 
+         let result = []
+
+         _.forOwn(data, function(count, age){
+             console.log(age, count)
+             let obj = {}; 
+             obj[age] = count
+             result.push(obj)
+         })
+         return result;
 
     }
     return mockDBCall(dataAccessMethod);
