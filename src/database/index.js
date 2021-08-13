@@ -21,6 +21,24 @@ const getUsers = () => {
     return mockDBCall(dataAccessMethod);
 };
 
+const getItems = () => {
+    const dataAccessMethod = () =>{
+        let values = Object.values(db.itemsOfUserByUsername)
+        let items = [];
+        values.map(value => {
+            value.map(v => {
+                if (!items.includes(v)) 
+                    items.push(v);
+            })
+        })
+        //console.log(_.uniq(...values))
+        return items
+    }
+    return mockDBCall(dataAccessMethod);
+    //itemsOfUserByUsername
+    //return "Hi there"
+};
+
 
 const getListOfAgesOfUsersWith = (item) => {
     const dataAccessMethod = () => {
@@ -57,5 +75,6 @@ const getListOfAgesOfUsersWith = (item) => {
 
 module.exports = {
     getUsers,
+    getItems,
     getListOfAgesOfUsersWith
 };
