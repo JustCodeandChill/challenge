@@ -21,6 +21,7 @@ const getUsers = () => {
     return mockDBCall(dataAccessMethod);
 };
 
+
 const getListOfAgesOfUsersWith = (item) => {
     const dataAccessMethod = () => {
         // structure of data {"age": count}
