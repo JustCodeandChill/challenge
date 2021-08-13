@@ -1,10 +1,15 @@
 'use strict';
 const express = require('express');
+const path = require('path')
 const app = express();
 const registerRoutes = require('./routes');
 
 // server config
 const port = process.env.PORT || 3000;
+
+// serve static file
+const publicPath = path.join(__dirname, '../', 'public');
+app.use('/', express.static(publicPath));
 
 // register routes
 registerRoutes(app);
