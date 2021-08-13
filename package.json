@@ -4,8 +4,10 @@
   "description": "coding challenge",
   "main": "./src/index.js",
   "scripts": {
-    "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js"
+    "dev": "nodemon ./src/index.js",
+    "client": "npm run dev --prefix",
+    "start": "npm run dev --prefix client && node ./src/index.js",
+    "install": "npm install && npm install --prefix client"
   },
   "author": "walmex-team",
   "license": "ISC",
